@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAXS 10
+
+void Shift( char s[] );
+
+void GetString( char s[] ); 
+int main()
+{
+    char s[MAXS];
+
+    GetString(s);
+    Shift(s);
+    printf("%s\n", s);
+	
+    return 0; 
+}
+void Shift( char s[] )
+{
+	int size=strlen(s);
+	char p[3];
+	for(int i=0;i<3;i++)
+	{
+		p[i]=s[i];
+	}
+	for(int i=3,j=0;i<size;i++,j++)
+	{
+		s[j]=s[i];
+	}
+	for(int i=size-3,j=0;i<size;j++,i++)
+	{
+		s[i]=p[j];
+	}
+}
