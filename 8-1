@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main()
+{
+	float n,sum;
+	for(int i=0;i<12;i++)
+	{
+		scanf("%f",&n);
+	    sum+=n;
+	}
+	sum=sum/12;
+	printf("$%.2f",sum);
+	return 0;
+	
+	
+}
