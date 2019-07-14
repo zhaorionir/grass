@@ -20,7 +20,7 @@ int main()
 void strmcpy( char *t, int m, char *s )
 {
 	int n,i;
-	memset(s,0,sizeof(s));//初始化字符串S 
+	memset(s,0,sizeof(s));//初始化字符串S void *memset(void *s,int ch,size_t n); c/c++的初始化函数 将s中当前位置后面的n个字节，用ch替换并返回s
 	n=strlen(t);//计算字符串T的长度 
 	if(m>n)
 	*s=NULL;
