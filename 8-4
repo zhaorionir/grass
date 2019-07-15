@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+const int pi=3.14156792;
+int main()
+{
+	int n,i=1, tmp = 0;
+	int year;
+	double x,y;
+	double radious,area;
+	scanf("%d",&n);
+	while(n--)
+	{
+		scanf("%lf%lf",&x,&y);
+		radious=x*x+y*y;
+		area=pi*radious * 0.5;
+	    year =area * 1.0 / 50 ;
+	    year=ceil(year);
+	    printf("Property %d: This property will begin eroding in year %d\n",i++,year);
+	    if (tmp == n) printf("END OF OUTPUT.\n");
+	    tmp++;
+	}
+	return 0;
+ } 
