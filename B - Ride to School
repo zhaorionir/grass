@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+    double ans;
+	double v,t,t1;
+	int n;
+	while(scanf("%d",&n))
+	{
+		if(n==0) break;
+  		t1=0;
+    	ans=9999999;
+        for(int i=1;i<=n;i++)
+		{
+	 		scanf("%lf%lf",&v,&t);
+	 		if(t<0)  continue;
+			t1=4.5/v*3600+t;
+		    ans = min(t1,ans);
+        }  
+        printf("%d\n",(int)ceil(ans));
+       
+	} 
+	return 0;
+}
