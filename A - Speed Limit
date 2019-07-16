@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+	int n,v,t;
+	int h;
+	int flag=0;
+	
+	while(scanf("%d",&n))
+	{
+		if(n==-1)
+		break;
+		h = 0, flag = 0;
+		for(int i=1;i<=n;i++)
+		{
+			scanf("%d%d",&v,&t);
+			h+=v*(t-flag);
+			flag=t;
+		}
+		printf("%d miles\n",h);
+	}
+	return 0;
+}
+
