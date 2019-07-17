@@ -1,0 +1,21 @@
+#include <stdio.h>
+int Sum(int num)
+{
+
+	if(num==1){	
+	return 1;
+	}
+	else{
+	return num+Sum(num-1);
+	}
+	return 0;
+}
+int main()
+{
+	int sum,num;
+	scanf("%d",&num);
+	sum=Sum(num);
+	printf("%d",sum);
+	return 0;
+}
+//recursion 递归 
