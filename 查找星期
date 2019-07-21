@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAXS 80
+
+int getindex( char *s );
+
+int main()
+{
+    int n;
+    char s[MAXS];
+
+    scanf("%s", s);
+    n = getindex(s);
+    if ( n==-1 ) printf("wrong input!\n");
+    else printf("%d\n", n);
+
+    return 0;
+}
+
+int getindex( char *s )
+{
+    char week[7][10]={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+    int week1;
+    for(week1=0;week1<=6;week1++)
+    {
+    	if(strcmp(s,week[week1])==0)   //对比数组s和week[week1]用strcmp()函数
+    	break;
+	}
+	if(week1==7)
+	week1=-1;
+	return week1;
+	
+	
+	
+}
