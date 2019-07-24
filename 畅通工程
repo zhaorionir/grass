@@ -1,0 +1,70 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int fa[105]; //村庄的数目集合 
+int n; //点的个数 
+void init()
+{
+	for(int i = 0; i <= n; i++){
+		fa[i] = i;
+	}
+	
+}  //把单独的数变成父节点 
+int find1(int x)// 初始化并查集  
+{
+	int  t =x;
+	while(t != fa[t]){ //是否是父节点 
+		 t = fa[t];
+	}
+	while(t != x) //压缩路径 
+	{
+	 int tmp = fa[x];
+	 fa[x] = t;//t是新的祖先 
+	 x = tmp;
+    }
+    return t;
+}
+bool join (int a, int b) //合并 
+{ 
+    int faa = find1(a);
+    int fbb = find1(b);
+    if(faa != fbb)
+    {
+    	fa[faa] = fbb;
+    	return true ;
+	}
+	return false;
+}
+class Edge{
+	public:
+		int a,b; //两个点 
+		int v;  //两点之间的距离 
+};
+Edge edge[5050]; 
+
+	int cmp (Edge a, Edge b){
+	return a.v < b.v;
+}             //类的调用 
+int main()
+{
+	while (~scanf("%d",&n)&&n)
+	{
+		init();
+		int cnt = 0;
+		for(int i = 0; i < (n-1)*n/2; i++){
+			int a, b, v;
+			scanf("%d%d%d",&edge[i].a, &edge[i].b, &edge[i].v);
+		}
+		cnt = n*(n-1)/2;
+		sort (edge, edge+cnt, cmp);
+		int sum = 0;
+		for(int i = 0; i < cnt; i++)
+		{
+			if(join(edge[i].a , edge[i].b)){
+				sum += edge[i].v;
+			}
+		}
+		printf("%d\n",sum);
+	}
+	return 0;
+}
