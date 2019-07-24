@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main() {
+	int n, m, sum1, sum2;
+	while (~scanf("%lld %lld", &n, &m)) {
+		sum1 = sum2 = 0;
+		
+		for (int i = n; i <= m; i++) {
+			if (i % 2 == 0) sum1 += (i * i);
+			else sum2 += (i * i * i);
+		}
+		printf("%d %lld\n", sum1, sum2);
+	}
+	return 0;
+}
