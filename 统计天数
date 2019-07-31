@@ -1,0 +1,23 @@
+#include <stdio.h>
+#define N 1000005
+int a[N] = {0};
+int main()
+{
+	int n, t = 1, maxn = 0;
+	scanf("%d", &n);
+	for(int i = 0; i < n; i++){
+		scanf("%d", a + i);
+	}
+	
+	for(int j = 0; j < n; j++){
+		if(a[j] <= a[j+1]){
+			t++;
+		} else {
+		  maxn = maxn < t ? t : maxn;
+		  t = 1; 	
+		}
+	}
+
+	printf("%d", maxn);
+	return 0;
+}
