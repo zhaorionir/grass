@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+#include <string.h>
+string b, c;
+int main() {
+	int sum1 = 1,sum2 = 1;
+
+	cin >> b;
+	cin >> c;
+	for(int i = 0; i < b.length(); i++) {
+
+		sum1 *= b[i] -'@';
+	}
+	for(int j = 0; j < c.length(); j++) {
+
+		sum2 *= c[j]-'@';
+	}
+	if((sum1%=47) == (sum2%=47))
+		cout << "GO" << endl;
+	else
+		cout << "STAY" <<endl;
+	return 0;
+}
