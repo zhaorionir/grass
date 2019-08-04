@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int num[2001] = {6}, dis[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6} , cnt, n;
+void init( ) {
+	for(int i = 1; i <= 2000; i++) {
+		int k = i;
+		while(k >= 1) {
+
+			num[i] = num[i] + dis[ k % 10]; // 循环加加 自身加加 
+			                                //num[k] += dis[ k %10];
+			k /=10;
+		}
+	}
+}
+int main() {
+	init();
+	cin >> n;
+	cnt= 0;
+	for(int i = 0; i <= 1000; i ++) {
+		for(int k = 0; k <= 1000; k++) {
+            
+			if(num[i] + num[k] + num[i + k] + 4 == n)
+				
+				cnt ++;
+		}
+	}
+	cout << cnt << endl;
+	return 0;
+}
