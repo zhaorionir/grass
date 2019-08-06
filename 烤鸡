@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int n, kind, Map[1111][11], p[11];
+void Dfs (int sum, int cnt) {   //sum  = n 总和 cnt 计数 kind 几种方案   输入的是配料的总和 
+	if(sum == n) {
+		if(cnt == 10) {        //  配料有10个 cnt = 10 
+			for(int i = 0; i < 10; i++) {
+				Map[kind][i] = p[i];
+			}
+			kind ++;
+		}
+	} else if(sum >= n);
+	else {
+		for(int j = 1; j <= 3; j++) {
+			p[cnt] = j;
+			Dfs(sum + j, cnt + 1);
+		}
+	}
+}
+int main() {
+	while(cin >> n) {
+		kind = 0;
+		Dfs(0, 0);
+		cout << kind <<endl;
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 10; j++) {
+				cout << Map[i][j] << " ";
+			}
+			cout << endl;
+		}
+	}
+	return 0;
+}
