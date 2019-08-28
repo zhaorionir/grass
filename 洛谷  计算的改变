@@ -1,0 +1,19 @@
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+using namespace std;
+char f1, f2, l, r;
+int main()
+{
+	char F, tmp = 0;
+	while(~scanf("%c",&F) && F != '\n'){
+		if(F >= '0' && F <= '9'){
+			tmp = tmp * 10 + F - '0';
+		}
+		if(F >= 'a' && F <= 'z'){
+			if(tmp*F)
+			l += (tmp 
+		}
+		
+	}
+}
