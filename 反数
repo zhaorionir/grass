@@ -1,0 +1,15 @@
+#include <cstdio>
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n = 0, k = 0, x = 0;
+	cin >> n;
+	while(n != 0){
+        x = n%10;
+		k = k*10 + x;
+		n = n/10;
+	}
+	cout << k << endl;
+	return 0;
+ } 
