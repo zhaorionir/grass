@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cstdio>
+#include <cmath>
+using namespace std;
+int l, r;
+char ch, c;
+void fun() {
+	int f1 = 1, f2 = 1, tmp = 0;
+	while (~scanf("%c", &c)) {
+		if (c >= '0' && c <= '9') {
+			tmp = tmp * 10 + (int)c - '0';
+		} else {
+			if (c >= 'a' && c <= 'z') {
+				l += (tmp == 0) ? f1*f2 : tmp*f1*f2; // l += f1 * f2
+				ch = c;
+			} else {
+				r += tmp*(-f2)*f1;
+			}
+			tmp = 0;
+		}
+		if (c == '+') {
+			f1 = 1;
+			continue;
+		}
+		if (c == '-') {
+			f1 = -1;
+			continue;
+		}
+		if (c == '=') {
+			f2 = -1;
+			f1 = 1;
+			continue;
+		}
+	}
+}
+
+int main() {
+	fun();
+	printf("%c=%0.3f", ch, (float)r/l == 0 ? abs((float)r/l) : (float)r/l);
+	return 0;
+}
